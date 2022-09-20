@@ -1,22 +1,61 @@
-import { Container, Flex, Heading, Text } from "@chakra-ui/react";
-import Cart from "../src/sections/input";
-import Details from "../src/sections/output";
+import { Container, Flex, Heading, Link, Text } from "@chakra-ui/react";
+import Head from "next/head";
+import { useEffect, useState } from "react";
+import { alloifyEngine } from "../helpers/alloifyEngine";
+import Input from "../src/sections/input";
+import Output from "../src/sections/output";
 
 const IndexPage = () => {
-  return (
-    <Container maxW="container.xl" p={0}>
-      <Heading w="full" h={20} m={0} py={4} textAlign="center">
-        🇬🇧 Alloify 🇫🇷
-      </Heading>
-      <Text w="full" textAlign="center">
-        E vory nace woy to umprive year Frunch
-      </Text>
+  const [inputString, setInputString] = useState<string>("");
+  const [outputString, setOutputString] = useState<string>("");
 
-      <Flex h="90vh" pb={20}>
-        <Details />
-        <Cart />
-      </Flex>
-    </Container>
+  useEffect(() => {
+    const output = alloifyEngine(inputString);
+    setOutputString(output);
+  }, [inputString]);
+  return (
+    <>
+      <Head>
+        <title>🇬🇧 Alloify 🇫🇷</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
+      <Container maxW="container.xl" maxH="xl" p={0}>
+        <Heading
+          w="full"
+          h={20}
+          m={0}
+          py={4}
+          textAlign="center"
+          color={"blue.700"}
+          size="2xl"
+        >
+          🇬🇧 Alloify 🇫🇷
+        </Heading>
+        <Text w="full" fontSize="xl" textAlign="center">
+          E vory nace woy to umprive year Frunch
+        </Text>
+
+        <Flex h="85vh" py="8">
+          <Input setInputString={setInputString} />
+          <Output
+            outputString={outputString}
+            reroll={() => {
+              setOutputString(alloifyEngine(inputString));
+            }}
+          />
+        </Flex>
+        <Text
+          textAlign="center"
+          w="full"
+          fontSize="2xl"
+          fontFamily={"Funt"}
+          p={0}
+          mt={-4}
+        >
+          <Link>Funt.im 🤙</Link>
+        </Text>
+      </Container>
+    </>
   );
 };
 
