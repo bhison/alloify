@@ -18,6 +18,10 @@ const IndexPage = () => {
       <Head>
         <title>🇬🇧 Alloify 🇫🇷</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <meta
+          property="og:image"
+          content="https://alloify.funt.im/images/preview.jpg"
+        />
       </Head>
       <Container maxW="container.xl" maxH="100vh" p={0}>
         <Heading
