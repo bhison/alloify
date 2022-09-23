@@ -3,7 +3,7 @@ const vowels = ["a", "e", "i", "o", "u"];
 const alternativeVowels = {
   a: ["e", "i", "o", "u"],
   e: ["a", "i", "o", "u"],
-  i: ["a", "i", "o", "u"],
+  i: ["a", "e", "o", "u"],
   o: ["a", "e", "i", "u"],
   u: ["a", "e", "i", "o"],
 };
@@ -30,7 +30,7 @@ const alloifyEngine = (input: string): string => {
     const letter = input[i].toLowerCase();
     if (vowels.includes(letter)) {
       //check loner
-      if (loners.includes(letter)) {
+      if (loners.includes(letter) && i < input.length && input[i + 1] === " ") {
         returnString += letter;
         continue;
       }
