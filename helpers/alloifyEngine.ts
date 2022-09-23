@@ -36,30 +36,30 @@ const alloifyEngine = (input: string): string => {
       }
 
       //check enders
-      if (i < input.length - 1 && letter === "e" && input[i + 1] === " ") {
-        returnString += letter;
-        continue;
-      }
-      if (
-        i < input.length - 2 &&
-        input[i + 2].toLowerCase() === " " &&
-        dontTouchEnders.includes(letter + input[i + 1].toLowerCase())
-      ) {
-        returnString += letter + input[i + 1].toLowerCase();
-        i++;
-        continue;
-      }
+      // if (i < input.length - 1 && letter === "e" && input[i + 1] === " ") {
+      //   returnString += letter;
+      //   continue;
+      // }
+      // if (
+      //   i < input.length - 2 &&
+      //   input[i + 2].toLowerCase() === " " &&
+      //   dontTouchEnders.includes(letter + input[i + 1].toLowerCase())
+      // ) {
+      //   returnString += letter + input[i + 1].toLowerCase();
+      //   i++;
+      //   continue;
+      // }
 
       //check pairs
-      if (
-        i < input.length - 1 &&
-        vowelPairs.includes(letter + input[i + 1].toLowerCase())
-      ) {
-        returnString +=
-          vowelPairs[Math.floor(Math.random() * vowelPairs.length)];
-        i += 2;
-        continue;
-      }
+      // if (
+      //   i < input.length - 1 &&
+      //   vowelPairs.includes(letter + input[i + 1].toLowerCase())
+      // ) {
+      //   returnString +=
+      //     vowelPairs[Math.floor(Math.random() * vowelPairs.length)];
+      //   i += 2;
+      //   continue;
+      // }
 
       //individual
       console.log(input[i]);

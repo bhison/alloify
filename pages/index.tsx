@@ -35,7 +35,7 @@ const IndexPage = () => {
           E vory nace woy to umprive year Frunch
         </Text>
 
-        <Flex h="85vh" py="8">
+        <Flex h="85vh" py={[4, 6, 8]} direction={{ base: "column", md: "row" }}>
           <Input setInputString={setInputString} />
           <Output
             outputString={outputString}
