@@ -8,19 +8,19 @@ const alternativeVowels = {
   u: ["a", "e", "i", "o"],
 };
 const vowelPairs = [
-  //   "ae",
-  //   "ai",
-  //   "ao",
-  //   "au",
+  "ae",
+  "ai",
+  "ao",
+  "au",
   "ey",
-  //   "ai",
-  //   "ee",
-  //   "oo",
-  //   "ou",
-  //   "ea",
-  //   "ay",
+  "ai",
+  "ee",
+  "oo",
+  "ou",
+  "ea",
+  "ay",
 ];
-const dontTouchEnders = ["xx"]; //["ed", "ey"];
+const dontTouchEnders = ["ed", "ey", "re"];
 const loners = ["i", "a"];
 
 const alloifyEngine = (input: string): string => {
@@ -35,31 +35,31 @@ const alloifyEngine = (input: string): string => {
         continue;
       }
 
-      //check enders
-      // if (i < input.length - 1 && letter === "e" && input[i + 1] === " ") {
-      //   returnString += letter;
-      //   continue;
-      // }
-      // if (
-      //   i < input.length - 2 &&
-      //   input[i + 2].toLowerCase() === " " &&
-      //   dontTouchEnders.includes(letter + input[i + 1].toLowerCase())
-      // ) {
-      //   returnString += letter + input[i + 1].toLowerCase();
-      //   i++;
-      //   continue;
-      // }
+      // check enders
+      if (i < input.length - 1 && letter === "e" && input[i + 1] === " ") {
+        returnString += letter;
+        continue;
+      }
+      if (
+        i < input.length - 2 &&
+        input[i + 2].toLowerCase() === " " &&
+        dontTouchEnders.includes(letter + input[i + 1].toLowerCase())
+      ) {
+        returnString += letter + input[i + 1].toLowerCase();
+        i++;
+        continue;
+      }
 
       //check pairs
-      // if (
-      //   i < input.length - 1 &&
-      //   vowelPairs.includes(letter + input[i + 1].toLowerCase())
-      // ) {
-      //   returnString +=
-      //     vowelPairs[Math.floor(Math.random() * vowelPairs.length)];
-      //   i += 2;
-      //   continue;
-      // }
+      if (
+        i < input.length - 1 &&
+        vowelPairs.includes(letter + input[i + 1].toLowerCase())
+      ) {
+        returnString +=
+          vowelPairs[Math.floor(Math.random() * vowelPairs.length)];
+        i++;
+        continue;
+      }
 
       //individual
       console.log(input[i]);
