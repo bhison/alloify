@@ -10,7 +10,7 @@ const Input = ({
     <VStack
       w="full"
       h="full"
-      p={10}
+      p={[2, 4, 10]}
       spacing={5}
       alignItems={"flex-start"}
       boxShadow={"md"}

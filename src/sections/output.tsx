@@ -12,7 +12,7 @@ const Output = ({
     <VStack
       w="full"
       h="full"
-      p={10}
+      p={[2, 4, 10]}
       spacing={6}
       align="flex-start"
       bg={"gray.200"}
