@@ -26,7 +26,7 @@ const Output = ({
         <Heading>Output</Heading>
       </HStack>
       <Box h="full" w="full">
-        <Text fontSize="larger">{outputString}</Text>
+        <Text fontSize="larger" whiteSpace={"pre"}>{outputString}</Text>
       </Box>
       <HStack w="full">
         <Button
